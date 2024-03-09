@@ -228,3 +228,4 @@ O Amazon DynamoDB é a solução de banco de dados ideal para a aplicação em q
 
 # Desenho
 projeto-contas.jpg
+![Solução](projeto-contas.jpg)
