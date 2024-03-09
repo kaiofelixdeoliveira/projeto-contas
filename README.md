@@ -227,4 +227,4 @@ Conclusão:
 O Amazon DynamoDB é a solução de banco de dados ideal para a aplicação em questão, devido à sua capacidade de lidar com alto volume de transações, baixa latência, alta disponibilidade e escalabilidade horizontal. O DynamoDB também oferece um bom nível de segurança de dados e um custo moderado.
 
 # Desenho
-https://github.com/kaiofelixdeoliveira/projeto-contas/blob/94ee7911af7b6378644962a14b40f0a281d08860/projeto-contas.jpg
+projeto-contas.jpg
