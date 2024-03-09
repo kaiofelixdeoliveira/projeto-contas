@@ -228,3 +228,54 @@ O Amazon DynamoDB é a solução de banco de dados ideal para a aplicação em q
 
 # Desenho
 ![Infra](projeto-contas.jpg)
+
+# Aplicação - API Saldo e Tranferencias
+
+
+### API REST para Transferência Bancária em Java/Spring Boot
+* Requisitos:
+
+Buscar o nome do cliente na API de cadastro (mock).
+Validar se a conta corrente está ativa.
+Validar se o cliente tem limite disponível na conta corrente para realizar a transferência.
+Validar se a transferência excedeu o limite diário de R$ 1.000,00.
+Notificar o BACEN (mock) de forma síncrona que a transação foi concluída com sucesso, com controle de rate limite e tratamento de erros (429).
+Impedir que falhas momentâneas das dependências da aplicação impactem a experiência do cliente.
+* Desenvolvimento:
+
+Linguagem: Java/Spring Boot
+
+* Tecnologias:
+
+Spring Boot Web para desenvolvimento da API REST.
+Spring Data JPA para acesso ao banco de dados.
+Feign Client para comunicação com a API de cadastro e BACEN (mocks).
+Hystrix para implementar resiliência na comunicação com o BACEN.
+Lombok para reduzir boilerplate no código.
+* Arquitetura:
+
+Camada de Controller: Exporá os endpoints da API REST.
+Camada de Service: Implementará a lógica de negócio da API.
+Camada de Repository: Acessará o banco de dados.
+Camada de Model: Representará as entidades do sistema.
+* Testes:
+
+Testes unitários para cada classe da API.
+Testes de integração para testar a comunicação com as APIs de cadastro e BACEN.
+* Design Patterns:
+
+Singleton: Para garantir que apenas uma instância da API seja criada.
+Factory: Para criar objetos de forma flexível.
+Repository: Para abstrair o acesso ao banco de dados.
+Command: Para encapsular a lógica de negócio das transações.
+* Resiliência:
+
+Hystrix: Implementará circuit breaker e fallback para lidar com falhas na comunicação com o BACEN.
+Retry: Implementará lógica de retry para lidar com erros temporários na comunicação com o BACEN.
+* Segurança:
+
+Autenticação e autorização (JWT) para proteger os endpoints da API.
+Criptografia de dados para garantir a confidencialidade das informações.
+* Documentação:
+
+Documentação completa da API utilizando Swagger.
