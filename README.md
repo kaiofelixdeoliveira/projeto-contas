@@ -279,3 +279,72 @@ Criptografia de dados para garantir a confidencialidade das informações.
 * Documentação:
 
 Documentação completa da API utilizando Swagger.
+
+# Solução
+
+Arquitetura de Solução em AWS para API de Transferência Bancária
+* Desafio:
+
+Desenvolver uma solução escalável, resiliente e de alta performance para a API de Transferência Bancária em Java/Spring Boot, utilizando a plataforma AWS.
+
+* Requisitos:
+
+Escalabilidade: Suporte a oscilações de carga e alto throughput (6.000 TPS).
+Observabilidade: Monitoramento completo da solução.
+Banco de dados: Solução eficiente e confiável.
+Caching: Otimização de performance.
+Tempo de resposta: Inferior a 100ms.
+Alta disponibilidade: Minimizar impacto no cliente em caso de falhas.
+Resiliência: Lidar com throttling do BACEN.
+*Proposta de Solução:
+
+* Componentes:
+
+Balanceador de carga Elastic Load Balancing (ELB): Distribui o tráfego entre as instâncias da API.
+Auto Scaling: Ajusta automaticamente o número de instâncias da API conforme a demanda.
+Amazon EC2: Instâncias para execução da API.
+Amazon Relational Database Service (RDS): Banco de dados relacional para armazenar dados da API.
+Amazon ElastiCache: Armazena em cache dados frequently accessed para otimizar performance.
+Amazon CloudWatch: Monitora métricas da API, como tempo de resposta, erros e latência.
+AWS Lambda: Função para processar notificações do BACEN em caso de throttling.
+Amazon SNS: Notifica os clientes sobre falhas na API.
+* Escalabilidade:
+
+Auto Scaling: Aumenta ou diminui o número de instâncias da API automaticamente.
+Amazon EC2: Utilize instâncias com poder de processamento adequado para a demanda.
+Sharding: Distribua dados em múltiplos servidores RDS para aumentar a capacidade.
+* Observabilidade:
+
+Amazon CloudWatch: Monitora logs, métricas e eventos da API.
+Dashboards: Crie dashboards para visualizar as métricas da API em tempo real.
+Alertas: Configure alertas para ser notificado sobre problemas na API.
+*Banco de dados:
+
+Amazon RDS: Banco de dados relacional gerenciado, confiável e escalável.
+Aurora: Motor de banco de dados MySQL e PostgreSQL com alta performance e escalabilidade.
+Sharding: Distribua dados em múltiplos servidores RDS para aumentar a capacidade.
+*Caching:
+
+Amazon ElastiCache: Armazena em cache dados frequently accessed para reduzir o tempo de resposta.
+Redis: Utilize Redis como solução de cache em memória.
+Memcached: Utilize Memcached como solução de cache em memória.
+*Tempo de resposta:
+
+Amazon EC2: Utilize instâncias com poder de processamento adequado para a demanda.
+Amazon ElastiCache: Utilize cache para armazenar dados frequently accessed.
+Otimização de código: Otimize o código da API para melhorar o tempo de resposta.
+* Alta disponibilidade:
+
+Auto Scaling: Garante que a API esteja sempre disponível mesmo em caso de falhas de instâncias.
+Multi-AZ: Implante a API em múltiplas zonas de disponibilidade para aumentar a resiliência.
+Amazon RDS: Banco de dados gerenciado com alta disponibilidade.
+* Resiliência:
+
+Hystrix: Implemente Hystrix para lidar com falhas na comunicação com o BACEN.
+Retry: Implemente lógica de retry para lidar com erros temporários.
+AWS Lambda: Função para processar notificações do BACEN em caso de throttling.
+* Segurança:
+
+Amazon Cognito: Autentique e autorize os usuários da API.
+AWS Identity and Access Management (IAM): Controle o acesso aos recursos da AWS.
+Criptografia: Criptografe os dados da API em repouso e em trânsito.
