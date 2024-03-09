@@ -185,11 +185,11 @@ Complexidade: A implementação de um sistema de observabilidade pode ser comple
 
 # Justificativa Detalhada da Escolha da Solução de Banco de Dados
 
-*Introdução:
+* Introdução:
 
 Este documento apresenta uma justificativa detalhada da escolha do banco de dados para a API de Transferência Bancária, considerando os requisitos específicos do projeto e as características dos principais candidatos: Amazon Relational Database Service (RDS) e Amazon DynamoDB.
 
-*Requisitos do Banco de Dados:
+* Requisitos do Banco de Dados:
 
 Armazenamento de dados transacionais:
 Registro de transações bancárias (transferências).
