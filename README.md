@@ -280,9 +280,10 @@ Criptografia de dados para garantir a confidencialidade das informações.
 
 Documentação completa da API utilizando Swagger.
 
-# Solução
+# Arquitetura de Solução
 
-Arquitetura de Solução em AWS para API de Transferência Bancária
+### Arquitetura de Solução em AWS para API de Transferência Bancária
+
 * Desafio:
 
 Desenvolver uma solução escalável, resiliente e de alta performance para a API de Transferência Bancária em Java/Spring Boot, utilizando a plataforma AWS.
