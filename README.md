@@ -15,10 +15,13 @@ Implementa autenticação e autorização com Amazon Cognito para garantir segur
 
 * ⭐️ 2. Microsserviços:
 
-Consulta de Saldo:
+* Consulta de Saldo:
+  
 Acessa o Amazon DynamoDB para recuperar o saldo da conta do cliente.
 Retorna o saldo em tempo real.
-Transferência:
+
+* Transferência:
+  
 Valida a transação e verifica a disponibilidade de fundos usando Amazon SQS e Amazon SNS.
 Debita o valor da conta de origem e credita na conta de destino usando o Amazon DynamoDB.
 Integra-se com o sistema de pagamentos do através do AWS Lambda.
@@ -26,7 +29,8 @@ Integra-se com o sistema de pagamentos do através do AWS Lambda.
 * ⭐️3. Base de Dados:
 
 Amazon DynamoDB: Armazena informações sobre contas, transações e outros dados relevantes em um banco de dados NoSQL altamente escalável e disponível.
-4. Contêineres:
+
+* ⭐️4. Contêineres:
 
 Isolam e encapsulam os microsserviços, permitindo escalabilidade e flexibilidade.
 Facilitam a implantação e o gerenciamento da solução com o Amazon ECS e Amazon EKS.
@@ -36,17 +40,20 @@ Facilitam a implantação e o gerenciamento da solução com o Amazon ECS e Amaz
 Amazon CloudFront: Distribui o conteúdo estático da API para reduzir a latência.
 Amazon CloudWatch: Monitora a performance da solução e fornece insights para otimização.
 AWS Auto Scaling: Escala automaticamente os recursos da AWS para atender à demanda.
-Segurança:
+
+* Segurança:
 
 Autenticação e autorização com Amazon Cognito.
 Comunicação criptografada entre os componentes.
 Armazenamento seguro de dados confidenciais no AWS KMS.
-Monitoramento:
+
+* Monitoramento:
 
 Monitoramento contínuo com o Amazon CloudWatch.
 Métricas chave como latência, tempo de resposta e taxa de sucesso/erro.
 Alertas em tempo real para identificar e resolver problemas rapidamente.
-Escalabilidade:
+
+* Escalabilidade:
 
 Escalabilidade horizontal automática com o AWS Auto Scaling.
 Aumento ou diminuição dos recursos da AWS de acordo com a demanda.
@@ -60,7 +67,8 @@ Segurança aprimorada.
 Escalabilidade horizontal automática.
 Fácil implantação e gerenciamento.
 Redução de custos com infraestrutura.
-Considerações:
+
+* Considerações:
 
 O custo da solução pode ser alto, especialmente se for utilizada a capacidade total da AWS.
 A segurança da solução precisa ser cuidadosamente planejada e implementada.
@@ -76,7 +84,11 @@ A solução precisa ser personalizada para atender às necessidades específicas
 Recursos Adicionais:
 
 Documentação sobre microsserviços: https://aws.amazon.com/microservices/
+
 Documentação sobre containers: https://aws.amazon.com/containers/
+
 Documentação sobre Amazon DynamoDB: https://aws.amazon.com/dynamodb/
+
 Documentação sobre Amazon Cognito: https://aws.amazon.com/cognito/
+
 Documentação sobre AWS Auto Scaling: [https://aws.amazon.com/autoscaling/](https
