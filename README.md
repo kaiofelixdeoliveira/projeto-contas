@@ -7,13 +7,13 @@ Esta solução abrangente oferece aos clientes a capacidade de realizar consulta
 
 Componentes-chave:
 
-* ⭐️ 1. API Gateway:
+### ⭐️ 1. API Gateway:
 
 Ponto de entrada único para as operações de consulta de saldo e transferência.
 Recebe solicitações dos clientes e as roteia para os microsserviços apropriados.
 Implementa autenticação e autorização com Amazon Cognito para garantir segurança.
 
-* ⭐️ 2. Microsserviços:
+### ⭐️ 2. Microsserviços:
 
 * Consulta de Saldo:
   
@@ -26,16 +26,16 @@ Valida a transação e verifica a disponibilidade de fundos usando Amazon SQS e 
 Debita o valor da conta de origem e credita na conta de destino usando o Amazon DynamoDB.
 Integra-se com o sistema de pagamentos do através do AWS Lambda.
 
-* ⭐️3. Base de Dados:
+### ⭐️3. Base de Dados:
 
 Amazon DynamoDB: Armazena informações sobre contas, transações e outros dados relevantes em um banco de dados NoSQL altamente escalável e disponível.
 
-* ⭐️4. Contêineres:
+### ⭐️4. Contêineres:
 
 Isolam e encapsulam os microsserviços, permitindo escalabilidade e flexibilidade.
 Facilitam a implantação e o gerenciamento da solução com o Amazon ECS e Amazon EKS.
 
-* ⭐️5. Serviços AWS Adicionais:
+### ⭐️5. Serviços AWS Adicionais:
 
 Amazon CloudFront: Distribui o conteúdo estático da API para reduzir a latência.
 Amazon CloudWatch: Monitora a performance da solução e fornece insights para otimização.
