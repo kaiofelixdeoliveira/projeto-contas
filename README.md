@@ -349,3 +349,137 @@ AWS Lambda: Função para processar notificações do BACEN em caso de throttlin
 Amazon Cognito: Autentique e autorize os usuários da API.
 AWS Identity and Access Management (IAM): Controle o acesso aos recursos da AWS.
 Criptografia: Criptografe os dados da API em repouso e em trânsito.
+
+# Módulo Terraform para API de Transferência Bancária
+Objetivo:
+
+### Criar um módulo Terraform que automatiza a provisionamento da infraestrutura AWS para a API de Transferência Bancária.
+
+Requisitos:
+
+Balanceador de carga Elastic Load Balancing (ELB)
+Auto Scaling
+Amazon EC2
+Amazon Relational Database Service (RDS)
+Amazon ElastiCache
+Amazon CloudWatch
+AWS Lambda
+Amazon SNS
+Módulo Terraform:
+
+```tf
+module "api_transferencia_bancaria" {
+  source = "path/to/module"
+
+  # Parâmetros
+
+  vpc_id = var.vpc_id
+  subnet_ids = var.subnet_ids
+  security_group_id = var.security_group_id
+  rds_instance_type = var.rds_instance_type
+  rds_database_name = var.rds_database_name
+  cache_node_type = var.cache_node_type
+  lambda_function_name = var.lambda_function_name
+  sns_topic_name = var.sns_topic_name
+
+  # Saídas
+
+  elb_dns_name = output.elb_dns_name
+  rds_endpoint = output.rds_endpoint
+  cache_endpoint = output.cache_endpoint
+}
+```
+Variáveis:
+```tf
+variable "vpc_id" {
+  type = string
+}
+
+variable "subnet_ids" {
+  type = list(string)
+}
+
+variable "security_group_id" {
+  type = string
+}
+
+variable "rds_instance_type" {
+  type = string
+}
+
+variable "rds_database_name" {
+  type = string
+}
+
+variable "cache_node_type" {
+  type = string
+}
+
+variable "lambda_function_name" {
+  type = string
+}
+
+variable "sns_topic_name" {
+  type = string
+}
+
+```
+Exemplo de Uso:
+```tf
+resource "aws_vpc" "default" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_subnet" "public" {
+  vpc_id = aws_vpc.default.id
+  cidr_block = "10.0.1.0/24"
+  availability_zone = "us-east-1a"
+}
+
+resource "aws_subnet" "private" {
+  vpc_id = aws_vpc.default.id
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "us-east-1b"
+}
+
+resource "aws_security_group" "api" {
+  vpc_id = aws_vpc.default.id
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+module "api_transferencia_bancaria" {
+  source = "path/to/module"
+
+  vpc_id = aws_vpc.default.id
+  subnet_ids = [aws_subnet.public.id, aws_subnet.private.id]
+  security_group_id = aws_security_group.api.id
+  rds_instance_type = "db.t2.small"
+  rds_database_name = "transferencia_bancaria"
+  cache_node_type = "cache.t2.small"
+  lambda_function_name = "lambda_notificacao_bacen"
+  sns_topic_name = "sns_topic_transferencia_bancaria"
+}
+
+output "elb_dns_name" {
+  value = module.api_transferencia_bancaria.elb_dns_name
+}
+
+output "rds_endpoint" {
+  value = module.api_transferencia_bancaria.rds_endpoint
+}
+
+output "cache_endpoint" {
+  value = module.api_transferencia_bancaria.cache_endpoint
+}
+```
