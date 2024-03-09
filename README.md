@@ -185,46 +185,56 @@ Complexidade: A implementação de um sistema de observabilidade pode ser comple
 
 # Justificativa Detalhada da Escolha da Solução de Banco de Dados
 
-Justificativa Detalhada da Escolha da Solução de Banco de Dados
-### Introdução:
+*Introdução:
 
-A escolha da solução de banco de dados ideal para uma aplicação é crucial para garantir desempenho, escalabilidade, confiabilidade e segurança. Esta justificativa detalhada aborda os principais fatores que influenciaram a escolha do banco de dados para a solução em questão, considerando os requisitos específicos do projeto.
+Este documento apresenta uma justificativa detalhada da escolha do banco de dados para a API de Transferência Bancária, considerando os requisitos específicos do projeto e as características dos principais candidatos: Amazon Relational Database Service (RDS) e Amazon DynamoDB.
 
-* Requisitos de Banco de Dados:
+*Requisitos do Banco de Dados:
 
-Alto Volume de Transações: A solução precisa lidar com 6 mil transações por segundo, exigindo um banco de dados altamente performante e escalável.
-Baixa Latência: A latência precisa ser inferior a 100ms para garantir uma experiência do usuário fluida e responsiva.
-Alta Disponibilidade: O banco de dados precisa estar disponível 24 horas por dia, 7 dias por semana, com alta confiabilidade e resiliência a falhas.
-Escalabilidade Horizontal: O banco de dados precisa ser capaz de escalar horizontalmente para lidar com o aumento da carga e demanda.
-Segurança de Dados: O banco de dados precisa garantir a segurança e confidencialidade dos dados dos clientes.
-Análise de Soluções de Banco de Dados:
+Armazenamento de dados transacionais:
+Registro de transações bancárias (transferências).
+Informações de clientes e contas bancárias.
+Histórico de transações para auditoria e análise.
+Desempenho e escalabilidade:
+Suporte a um alto volume de transações (6.000 TPS).
+Baixa latência (< 100ms) para garantir uma experiência de usuário fluida.
+Escalabilidade vertical e horizontal para lidar com o crescimento da demanda.
+Alta disponibilidade e confiabilidade:
+Minimizar o tempo de inatividade e garantir a disponibilidade contínua da API.
+Replicação de dados para garantir a recuperação em caso de falhas.
+Segurança:
+Proteção contra acesso não autorizado, violações de dados e ataques cibernéticos.
+Criptografia de dados em repouso e em trânsito.
 
-* Foram consideradas as seguintes soluções de banco de dados:
-
-Amazon DynamoDB: Banco de dados NoSQL de alto desempenho e escalabilidade, ideal para aplicações com alto volume de transações e baixa latência.
-Amazon Relational Database Service (RDS): Serviço de banco de dados relacional gerenciado, com diversas opções de engines como MySQL, PostgreSQL e Oracle.
-Apache Cassandra: Banco de dados NoSQL distribuído de código aberto, conhecido por sua alta escalabilidade e resiliência a falhas.
-MongoDB: Banco de dados NoSQL document-oriented de código aberto, popular por sua flexibilidade e facilidade de uso.
-Comparação de Soluções:
+* Custo:
+Solução econômica que atenda às necessidades do projeto sem comprometer o desempenho ou a confiabilidade.
+Facilidade de gerenciamento:
+Interface de gerenciamento intuitiva e fácil de usar.
+Suporte técnico e documentação abrangentes.
 
 * Justificativa da Escolha:
 
-O Amazon DynamoDB foi escolhido como a solução de banco de dados ideal por atender aos requisitos de alto volume de transações, baixa latência, alta disponibilidade e escalabilidade horizontal. Além disso, o DynamoDB oferece um bom nível de segurança de dados e um custo moderado.
+O RDS foi escolhido como a solução de banco de dados para a API de Transferência Bancária pelos seguintes motivos:
 
-* Vantagens do DynamoDB:
+Natureza dos dados: Os dados armazenados pela API são estruturados e relacionais, como transações bancárias, registros de clientes e contas. O RDS é otimizado para lidar com esse tipo de dado, oferecendo melhor desempenho e confiabilidade.
+Desempenho: O RDS oferece latência previsível, crucial para garantir uma experiência de usuário rápida e confiável ao realizar transferências bancárias.
+Escalabilidade: O RDS oferece escalabilidade vertical e horizontal, permitindo que a API lide com o crescimento da demanda sem comprometer o desempenho.
+Alta disponibilidade e confiabilidade: O RDS oferece replicação de dados e outras features que garantem a alta disponibilidade e confiabilidade da API.
+Segurança: O RDS oferece recursos de segurança robustos, como criptografia de dados e controle de acesso, para proteger os dados contra violações.
+Custo: O custo do RDS é previsível e pode ser otimizado de acordo com as necessidades do projeto.
+Facilidade de gerenciamento: O RDS oferece uma interface de gerenciamento intuitiva e fácil de usar, além de suporte técnico e documentação abrangentes.
 
-Alto Desempenho: Suporta milhões de requests por segundo com latência consistente.
-Escalabilidade Horizontal: Pode ser facilmente escalado para lidar com o aumento da demanda.
-Alta Disponibilidade: Oferece replicação automática e failover para garantir alta disponibilidade.
-Segurança de Dados: Criptografa dados em repouso e em trânsito, além de oferecer controles de acesso granulares.
-Custo Moderado: Paga-se apenas pelo que se usa, sem necessidade de provisionar infraestrutura.
-Considerações:
+* Considerações sobre o DynamoDB:
 
-O DynamoDB não é um banco de dados relacional, o que pode ser uma limitação para alguns tipos de aplicações.
-A curva de aprendizado para o DynamoDB pode ser um pouco mais complexa do que para outros bancos de dados.
-Conclusão:
+Embora o DynamoDB seja uma opção viável para alguns projetos, ele não foi escolhido para este caso pelas seguintes razões:
 
-O Amazon DynamoDB é a solução de banco de dados ideal para a aplicação em questão, devido à sua capacidade de lidar com alto volume de transações, baixa latência, alta disponibilidade e escalabilidade horizontal. O DynamoDB também oferece um bom nível de segurança de dados e um custo moderado.
+Natureza dos dados: O DynamoDB não é otimizado para dados estruturados e relacionais como os que serão armazenados pela API.
+Desempenho: O DynamoDB pode ter latência variável, o que pode afetar negativamente a experiência do usuário ao realizar transações bancárias.
+Complexidade: O DynamoDB pode ser mais complexo de configurar e gerenciar para este tipo de projeto, especialmente para equipes com menos experiência com bancos de dados NoSQL.
+
+* Conclusão:
+
+O RDS foi escolhido como a melhor solução de banco de dados para a API de Transferência Bancária devido à sua capacidade de atender aos requisitos específicos do projeto em termos de natureza dos dados, desempenho, escalabilidade, alta disponibilidade e confiabilidade, segurança, custo e facilidade de gerenciamento.
 
 # Desenho
 ![Infra](projeto-contas.jpg)
