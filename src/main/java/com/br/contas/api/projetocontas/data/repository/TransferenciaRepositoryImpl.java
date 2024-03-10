@@ -1,30 +1,29 @@
-package com.br.contas.api.projetocontas.domain.usecases;
+package com.br.contas.api.projetocontas.data.repository;
 
+import com.br.contas.api.projetocontas.core.exception.LimiteDiarioExcedidoException;
 import com.br.contas.api.projetocontas.core.exception.RateLimitException;
-import com.br.contas.api.projetocontas.data.repository.CadastroClient;
+import com.br.contas.api.projetocontas.data.client.BacenClient;
+import com.br.contas.api.projetocontas.data.client.CadastroClient;
+import com.br.contas.api.projetocontas.data.client.ContaCorrenteClient;
+import com.br.contas.api.projetocontas.domain.entities.Transferencia;
+import com.br.contas.api.projetocontas.domain.repositories.TransferenciaRepository;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.contas.api.projetocontas.data.repository.ContaCorrenteClient;
-import com.br.contas.api.projetocontas.data.repository.BacenClient;
-import com.br.contas.api.projetocontas.core.exception.LimiteDiarioExcedidoException;
-import com.br.contas.api.projetocontas.domain.model.Transferencia;
-@Service
 @CircuitBreaker(name = "transferencias")
-public class TransferenciaService {
+public class TransferenciaRepositoryImpl implements TransferenciaRepository {
 
     private final CadastroClient cadastroClient;
     private final ContaCorrenteClient contaCorrenteClient;
     private final BacenClient bacenClient;
 
-    public TransferenciaService(CadastroClient cadastroClient, ContaCorrenteClient contaCorrenteClient, BacenClient bacenClient) {
+    public TransferenciaRepositoryImpl(CadastroClient cadastroClient, ContaCorrenteClient contaCorrenteClient, BacenClient bacenClient) {
         this.cadastroClient = cadastroClient;
         this.contaCorrenteClient = contaCorrenteClient;
         this.bacenClient = bacenClient;
     }
 
+    @Override
     public void realizarTransferencia(Transferencia transferencia) {
 
         // Buscar nome do cliente
@@ -43,7 +42,7 @@ public class TransferenciaService {
 
         // Notificar BACEN
         try {
-            bacenClient.notificarTransacao(transferencia);
+            notificarTransacao(transferencia);
         } catch (RateLimitException e) {
             // Implementar lógica de retry com backoff
             throw new RuntimeException("Falha ao notificar BACEN: " + e.getMessage());
@@ -53,6 +52,11 @@ public class TransferenciaService {
 
         // Notificar cliente
 
+    }
+
+    @Override
+    public void notificarTransacao(Transferencia transferencia) {
+        bacenClient.notificarTransacao(transferencia);
     }
 
     public void fallbackRealizarTransferencia(Transferencia transferencia, Throwable throwable) {

@@ -1,4 +1,4 @@
-package com.br.contas.api.projetocontas.data.repository;
+package com.br.contas.api.projetocontas.data.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
