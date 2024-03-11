@@ -269,6 +269,7 @@ Testes unitários para cada classe da API.
 Testes de integração para testar a comunicação com as APIs de cadastro e BACEN.
 
 * Arquitetura:
+  
 ![Alt text](Diagram.drawio.png?raw=true "Title")
 
 * Design Patterns:
