@@ -262,22 +262,38 @@ Spring Data JPA para acesso ao banco de dados.
 Feign Client para comunicação com a API de cadastro e BACEN (mocks).
 Hystrix para implementar resiliência na comunicação com o BACEN.
 Lombok para reduzir boilerplate no código.
-* Arquitetura:
 
-Camada de Controller: Exporá os endpoints da API REST.
-Camada de Service: Implementará a lógica de negócio da API.
-Camada de Repository: Acessará o banco de dados.
-Camada de Model: Representará as entidades do sistema.
 * Testes:
 
 Testes unitários para cada classe da API.
 Testes de integração para testar a comunicação com as APIs de cadastro e BACEN.
-* Design Patterns:
 
-Singleton: Para garantir que apenas uma instância da API seja criada.
-Factory: Para criar objetos de forma flexível.
-Repository: Para abstrair o acesso ao banco de dados.
-Command: Para encapsular a lógica de negócio das transações.
+* Arquitetura:
+![Alt text](Diagram.drawio.png?raw=true "Title")
+
+* Design Patterns:
+  
+[CAMADA DOMAIN]
+Esta é a camada central da nossa aplicação e a mais importante, ela é a mais próxima das regras de negócio da aplicação, ou seja, e quando definidas não sofrem tantas mudanças, como nas outras camadas e ainda é independente de todas as outras camadas.
+
+UseCases: nessa camada ficará as classes responsáveis em dizer quais as ações o usuário poderá executar no sistema, como comprar um produto ou até mesmo cancelar um pedido.
+“O software da camada de casos de uso contém as regras de negócio específicas da aplicação”
+
+Trecho de: Robert C. Martin. “Arquitetura Limpa (Robert C. Martin)”. Apple Books.
+
+Entities: As entidades são uma representação dos objetos de negócio da aplicação.
+“As Entidades reúnem as Regras Cruciais de Negócios da empresa inteira”
+
+Trecho de: Robert C. Martin. “Arquitetura Limpa (Robert C. Martin)”. Apple Books.
+
+Repositories: Os repositories nessa camada são a representação por meio de interfaces abstratas, enquanto a implementação é feita em outra camada.
+[CAMADA DATA]
+
+Esta camada é a responsável pela comunicação entre nossa aplicação e o mundo exterior, como exemplo, a comunicação com uma API ou um banco de dados.
+
+Repositories: esta camada é a implementação dos repositories abstratos, contidos em outra camada, a implementação faz operações como busca, remoção, atualização ou inserção de dados entre nossa aplicação a camada datasources, fazendo assim o meio de campo entre os dois extremos.
+Models: são espelhos das entities, porém podem conter métodos, como conversão de dados de entrada e saída, hash code e outros.
+DataSources: executará solicitações HTTP GET na API ou simplesmente armazenará em cache os dados usando o banco de dados h2.
 * Resiliência:
 
 Hystrix: Implementará circuit breaker e fallback para lidar com falhas na comunicação com o BACEN.
