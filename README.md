@@ -5,11 +5,11 @@ Projeto para realizar as Operações de Consulta de Saldo e Transferência entre
 
 Esta solução abrangente oferece aos clientes a capacidade de realizar consultas de saldo e transferências entre contas de maneira eficiente, resiliente e escalável na AWS. A arquitetura se baseia em microsserviços, containers, bancos de dados gerenciados e outros serviços da AWS para garantir alta disponibilidade, latência mínima e capacidade de lidar com alto volume de transações.
 
-## Arquitetura de Aplicação para API de Transferência Bancária
+## Arquitetura de Aplicação para API de Transferência Bancária :shipit:
   
 ![Alt text](Diagram.drawio.png?raw=true "Title")
 
-## Design Patterns para API de Transferência Bancária:
+## Design Patterns para API de Transferência Bancária :shipit:
   
 ### [CAMADA DOMAIN]
 Esta é a camada central da nossa aplicação e a mais importante, ela é a mais próxima das regras de negócio da aplicação, ou seja, e quando definidas não sofrem tantas mudanças, como nas outras camadas e ainda é independente de todas as outras camadas.
