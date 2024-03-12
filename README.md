@@ -1,13 +1,12 @@
 # Solução Completa para Consulta de Saldo e Transferência entre Contas na AWS #
-Projeto para realizar as Operações de Consulta de Saldo e Transferência entre contas.
 
 ## Objetivo:
 
-Avaliar a aptidão técnica do candidato à vaga de desenvolvedor de software, verificando seus conhecimentos em engenharia de software e arquitetura de soluções, além de sua aderência aos valores e cultura do Itaú.
+Avaliar a aptidão técnica do candidato à vaga de desenvolvedor de software, verificando seus conhecimentos em engenharia de software e arquitetura de soluções, além de sua aderência aos valores e cultura.
 
 ## Desafio:
 
-Desenvolver e apresentar uma solução completa para uma API REST que permita aos clientes do Itaú realizar consultas de saldo e transferências entre contas, com os seguintes requisitos:
+Desenvolver e apresentar uma solução completa para uma API REST que permita aos clientes realizar consultas de saldo e transferências entre contas, com os seguintes requisitos:
 
 ### Desafio de Engenharia de Software:
 
