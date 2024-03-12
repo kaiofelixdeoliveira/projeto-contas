@@ -1,17 +1,17 @@
 # Solução Completa para Consulta de Saldo e Transferência entre Contas na AWS #
 Projeto para realizar as Operações de Consulta de Saldo e Transferência entre contas.
 
-### Visão Geral: ###
+## Visão Geral:
 
 Esta solução abrangente oferece aos clientes a capacidade de realizar consultas de saldo e transferências entre contas de maneira eficiente, resiliente e escalável na AWS. A arquitetura se baseia em microsserviços, containers, bancos de dados gerenciados e outros serviços da AWS para garantir alta disponibilidade, latência mínima e capacidade de lidar com alto volume de transações.
 
-### Arquitetura de Aplicação para API de Transferência Bancária
+## Arquitetura de Aplicação para API de Transferência Bancária
   
 ![Alt text](Diagram.drawio.png?raw=true "Title")
 
-### Design Patterns para API de Transferência Bancária:
+## Design Patterns para API de Transferência Bancária:
   
-* [CAMADA DOMAIN]
+### [CAMADA DOMAIN]
 Esta é a camada central da nossa aplicação e a mais importante, ela é a mais próxima das regras de negócio da aplicação, ou seja, e quando definidas não sofrem tantas mudanças, como nas outras camadas e ainda é independente de todas as outras camadas.
 
 * UseCases: nessa camada ficará as classes responsáveis em dizer quais as ações o usuário poderá executar no sistema, como comprar um produto ou até mesmo cancelar um pedido.
@@ -26,7 +26,7 @@ Trecho de: Robert C. Martin. “Arquitetura Limpa (Robert C. Martin)”. Apple B
 
 * Repositories: Os repositories nessa camada são a representação por meio de interfaces abstratas, enquanto a implementação é feita em outra camada.
   
-* [CAMADA DATA]
+### [CAMADA DATA]
 
 Esta camada é a responsável pela comunicação entre nossa aplicação e o mundo exterior, como exemplo, a comunicação com uma API ou um banco de dados.
 
