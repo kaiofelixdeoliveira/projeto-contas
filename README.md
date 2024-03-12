@@ -15,12 +15,12 @@ Esta solução abrangente oferece aos clientes a capacidade de realizar consulta
 Esta é a camada central da nossa aplicação e a mais importante, ela é a mais próxima das regras de negócio da aplicação, ou seja, e quando definidas não sofrem tantas mudanças, como nas outras camadas e ainda é independente de todas as outras camadas.
 
 * UseCases: nessa camada ficará as classes responsáveis em dizer quais as ações o usuário poderá executar no sistema, como comprar um produto ou até mesmo cancelar um pedido.
-“O software da camada de casos de uso contém as regras de negócio específicas da aplicação”
+> “O software da camada de casos de uso contém as regras de negócio específicas da aplicação”
 
 Trecho de: Robert C. Martin. “Arquitetura Limpa (Robert C. Martin)”. Apple Books.
 
 * Entities: As entidades são uma representação dos objetos de negócio da aplicação.
-“As Entidades reúnem as Regras Cruciais de Negócios da empresa inteira”
+> “As Entidades reúnem as Regras Cruciais de Negócios da empresa inteira”
 
 Trecho de: Robert C. Martin. “Arquitetura Limpa (Robert C. Martin)”. Apple Books.
 
