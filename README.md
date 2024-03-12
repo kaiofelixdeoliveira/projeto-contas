@@ -51,7 +51,7 @@ Target Group: Define um conjunto de instâncias do Amazon EC2 que podem receber 
 * Balanceamento de carga: Distribuir o tráfego entre as instâncias do EC2 de forma eficiente.
 Auto Scaling: Adicionar ou remover instâncias do EC2 automaticamente com base na demanda.
 
-*ECS (Elastic Container Service): Orquestra containers que executam a API de transferência. O ECS oferece:
+* ECS (Elastic Container Service): Orquestra containers que executam a API de transferência. O ECS oferece:
 
 Gerenciamento de containers: Iniciar, parar e monitorar containers.
 Auto Scaling: Ajustar automaticamente a quantidade de containers em execução com base na demanda.
@@ -75,7 +75,8 @@ Segurança: Protege os dados contra acessos não autorizados.
 
 Escalabilidade: A API pode lidar com o aumento do tráfego sem problemas.
 Alta disponibilidade: A API permanece disponível mesmo se uma instância falhar.
-VPCLink: Conecta a API de transferência à sua rede VPC (Virtual Private Cloud). O VPCLink permite:
+
+* VPCLink: Conecta a API de transferência à sua rede VPC (Virtual Private Cloud). O VPCLink permite:
 
 Segurança: Protege a API contra acessos não autorizados da internet pública.
 Isolamento: Mantém a API em uma rede privada separada.
