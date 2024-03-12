@@ -11,29 +11,26 @@ Componentes-chave:
 
 Ponto de entrada único para as operações de consulta de saldo e transferência.
 Recebe solicitações dos clientes e as roteia para os microsserviços apropriados.
-Implementa autenticação e autorização com Amazon Cognito para garantir segurança.
 
 * ⭐️ 2. Microsserviços:
 
 * Consulta de Saldo:
   
-Acessa o Amazon DynamoDB para recuperar o saldo da conta do cliente.
+Acessa o RDS para recuperar o saldo da conta do cliente.
 Retorna o saldo em tempo real.
 
 * Transferência:
   
-Valida a transação e verifica a disponibilidade de fundos usando Amazon SQS e Amazon SNS.
-Debita o valor da conta de origem e credita na conta de destino usando o Amazon DynamoDB.
-Integra-se com o sistema de pagamentos do através do AWS Lambda.
+Debita o valor da conta de origem e credita na conta de destino usando RDS.
 
 * ⭐️3. Base de Dados:
 
-Amazon DynamoDB: Armazena informações sobre contas, transações e outros dados relevantes em um banco de dados NoSQL altamente escalável e disponível.
+RDS: Armazena informações sobre contas, transações e outros dados relevantes em um banco de dados altamente escalável e disponível.
 
 * ⭐️4. Contêineres:
 
 Isolam e encapsulam os microsserviços, permitindo escalabilidade e flexibilidade.
-Facilitam a implantação e o gerenciamento da solução com o Amazon ECS e Amazon EKS.
+Facilitam a implantação e o gerenciamento da solução com o Amazon ECS.
 
 * ⭐️5. Serviços AWS Adicionais:
 
@@ -77,21 +74,6 @@ Conclusão:
 
 Esta solução oferece uma maneira robusta, eficiente e escalável para que os clientes realizem consultas de saldo e transferências entre contas na AWS. A arquitetura moderna e resiliente garante alta disponibilidade, latência mínima e capacidade de lidar com alto volume de transações, tornando-a ideal para atender às necessidades.
 
-Observações:
-
-Esta é uma visão geral da solução. Detalhes técnicos específicos, como protocolos de comunicação, formatos de dados e bibliotecas de software, podem variar.
-A solução precisa ser personalizada para atender às necessidades específicas.
-Recursos Adicionais:
-
-Documentação sobre microsserviços: https://aws.amazon.com/microservices/
-
-Documentação sobre containers: https://aws.amazon.com/containers/
-
-Documentação sobre Amazon DynamoDB: https://aws.amazon.com/dynamodb/
-
-Documentação sobre Amazon Cognito: https://aws.amazon.com/cognito/
-
-Documentação sobre AWS Auto Scaling: [https://aws.amazon.com/autoscaling/](https
 
 # Proposta de Escalonamento para Casos de Oscilção de Carga
 ### Objetivo:
