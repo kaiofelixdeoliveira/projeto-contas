@@ -9,9 +9,9 @@ Avaliar a aptidão técnica do candidato à vaga de desenvolvedor de software, v
 
 Desenvolver e apresentar uma solução completa para uma API REST que permita aos clientes do Itaú realizar consultas de saldo e transferências entre contas, com os seguintes requisitos:
 
-## Desafio de Engenharia de Software:
+### Desafio de Engenharia de Software:
 
-Funcionalidades:
+* Funcionalidades:
 Consultar saldo do cliente (utilizando API de cadastro mock).
 Validar se a conta corrente está ativa.
 Validar se o cliente tem limite disponível na conta corrente para realizar a transferência.
@@ -25,9 +25,9 @@ Implementação de padrões de resiliência.
 Requisitos de performance:
 Latência inferior a 100ms.
 Suporte a 6 mil transações por segundo.
-## Desafio de Arquitetura de Solução:
+### Desafio de Arquitetura de Solução:
 
-Desenvolver um desenho de solução na AWS para a API:
+* Desenvolver um desenho de solução na AWS para a API:
 Proposta de escalonamento para lidar com oscilações de carga.
 Proposta de observabilidade da solução.
 Justificativa da escolha do banco de dados.
@@ -36,6 +36,7 @@ Garantia de tempo de resposta inferior a 100ms.
 Suporte a alto throughput (6 mil transações por segundo).
 Estratégia para lidar com falhas de dependências sem impactar o cliente.
 Estratégia para lidar com throttling (HTTP status 429) do BACEN.
+
 ## Entregas:
 
 ### Desenvolvimento da API REST:
