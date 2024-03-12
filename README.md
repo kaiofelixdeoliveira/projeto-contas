@@ -1,9 +1,78 @@
 # Solução Completa para Consulta de Saldo e Transferência entre Contas na AWS #
 Projeto para realizar as Operações de Consulta de Saldo e Transferência entre contas.
 
-## Visão Geral:
+## Objetivo:
 
-Esta solução abrangente oferece aos clientes a capacidade de realizar consultas de saldo e transferências entre contas de maneira eficiente, resiliente e escalável na AWS. A arquitetura se baseia em microsserviços, containers, bancos de dados gerenciados e outros serviços da AWS para garantir alta disponibilidade, latência mínima e capacidade de lidar com alto volume de transações.
+Avaliar a aptidão técnica do candidato à vaga de desenvolvedor de software, verificando seus conhecimentos em engenharia de software e arquitetura de soluções, além de sua aderência aos valores e cultura do Itaú.
+
+## Desafio:
+
+Desenvolver e apresentar uma solução completa para uma API REST que permita aos clientes do Itaú realizar consultas de saldo e transferências entre contas, com os seguintes requisitos:
+
+## Desafio de Engenharia de Software:
+
+Funcionalidades:
+Consultar saldo do cliente (utilizando API de cadastro mock).
+Validar se a conta corrente está ativa.
+Validar se o cliente tem limite disponível na conta corrente para realizar a transferência.
+Validar se a transferência excedeu o limite diário de R$ 1.000,00.
+Notificar o BACEN (mock) de forma síncrona sobre o sucesso da transação.
+Requisitos técnicos:
+Linguagem de desenvolvimento: Java/Spring Boot.
+Testes unitários e automatizados.
+Exploração de design patterns.
+Implementação de padrões de resiliência.
+Requisitos de performance:
+Latência inferior a 100ms.
+Suporte a 6 mil transações por segundo.
+## Desafio de Arquitetura de Solução:
+
+Desenvolver um desenho de solução na AWS para a API:
+Proposta de escalonamento para lidar com oscilações de carga.
+Proposta de observabilidade da solução.
+Justificativa da escolha do banco de dados.
+Justificativa do uso de cache (se aplicável).
+Garantia de tempo de resposta inferior a 100ms.
+Suporte a alto throughput (6 mil transações por segundo).
+Estratégia para lidar com falhas de dependências sem impactar o cliente.
+Estratégia para lidar com throttling (HTTP status 429) do BACEN.
+## Entregas:
+
+### Desenvolvimento da API REST:
+
+Código-fonte da API em Java/Spring Boot.
+Documentação da API.
+Testes unitários e automatizados.
+Descrição dos design patterns e padrões de resiliência utilizados.
+### Arquitetura de Solução:
+
+Diagrama da arquitetura da solução na AWS.
+Descrição da proposta de escalonamento.
+Descrição da proposta de observabilidade.
+Justificativa da escolha do banco de dados.
+Justificativa do uso de cache (se aplicável).
+Descrição da estratégia para lidar com falhas de dependências.
+Descrição da estratégia para lidar com throttling do BACEN.
+## Critérios de Avaliação:
+
+### Desenvolvimento da API REST:
+Qualidade do código e organização do projeto.
+Abrangência dos testes unitários e automatizados.
+Eficiência e performance da API.
+Correta implementação dos design patterns e padrões de resiliência.
+
+### Arquitetura de Solução:
+Clareza e detalhamento do diagrama da arquitetura.
+Adequação da solução aos requisitos de performance e escalabilidade.
+Eficiência da proposta de observabilidade.
+Justificativa consistente das escolhas tecnológicas.
+Eficácia das estratégias para lidar com falhas e throttling.
+
+## Observações:
+
+O candidato pode utilizar frameworks e bibliotecas de sua preferência para o desenvolvimento da API.
+A solução de arquitetura deve considerar os custos e a segurança da infraestrutura AWS.
+O candidato deve estar preparado para apresentar e defender sua solução em uma entrevista técnica.
 
 ## Arquitetura de Aplicação para API de Transferência Bancária :shipit:
   
