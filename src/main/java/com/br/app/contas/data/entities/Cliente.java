@@ -4,12 +4,13 @@ package com.br.app.contas.data.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
 @AllArgsConstructor
-public class ClienteEntity {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +19,9 @@ public class ClienteEntity {
     private String cpf;
 
     private String nome;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<ContaCorrente> contas;
 
     // ... getters and setters
 
