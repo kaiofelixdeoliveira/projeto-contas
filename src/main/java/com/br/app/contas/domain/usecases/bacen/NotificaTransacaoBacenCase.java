@@ -1,19 +1,19 @@
 package com.br.app.contas.domain.usecases.bacen;
 
 
+import com.br.app.contas.domain.repositories.TransferenciaContaRepository;
 import com.br.app.contas.domain.model.TransferenciaModel;
-import com.br.app.contas.domain.repositories.TransferenciaRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@AllArgsConstructor
+@Component
 public class NotificaTransacaoBacenCase {
 
-    final TransferenciaRepository transferenciaRepository;
-
-    public NotificaTransacaoBacenCase(TransferenciaRepository transferenciaRepository) {
-        this.transferenciaRepository = transferenciaRepository;
-    }
+    private final TransferenciaContaRepository transferenciaContaService;
 
     public void call(TransferenciaModel transferencia) {
-        transferenciaRepository.notificarTransacao(transferencia);
+        transferenciaContaService.notificarTransacao(transferencia);
 
     }
 

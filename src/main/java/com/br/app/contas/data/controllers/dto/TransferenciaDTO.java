@@ -13,8 +13,8 @@ public class TransferenciaDTO {
 
     private Long id;
     private String cpf;
-    private ContaCorrenteDTO contaOrigem;
-    private ContaCorrenteDTO contaDestino;
+    private ContaDTO contaOrigem;
+    private ContaDTO contaDestino;
     private Double valor;
     private StatusTransferencia status;
     private LocalDateTime dataHora;

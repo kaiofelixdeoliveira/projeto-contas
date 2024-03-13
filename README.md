@@ -12,8 +12,8 @@ Desenvolver e apresentar uma solução completa para uma API REST que permita ao
 
 * Funcionalidades:
 Consultar saldo do cliente (utilizando API de cadastro mock).
-Validar se a conta corrente está ativa.
-Validar se o cliente tem limite disponível na conta corrente para realizar a transferência.
+Validar se a conta  está ativa.
+Validar se o cliente tem limite disponível na conta  para realizar a transferência.
 Validar se a transferência excedeu o limite diário de R$ 1.000,00.
 Notificar o BACEN (mock) de forma síncrona sobre o sucesso da transação.
 Requisitos técnicos:

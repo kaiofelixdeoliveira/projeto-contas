@@ -21,7 +21,7 @@ public class Cliente {
     private String nome;
 
     @OneToMany(mappedBy = "cliente")
-    private List<ContaCorrente> contas;
+    private List<Conta> contas;
 
     // ... getters and setters
 

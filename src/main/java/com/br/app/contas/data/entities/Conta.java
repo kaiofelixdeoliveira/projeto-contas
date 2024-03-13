@@ -9,16 +9,16 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "contas_correntes")
+@Table(name = "contas")
 @AllArgsConstructor
-public class ContaCorrente {
+public class Conta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente")
     private Cliente cliente;
 
     @OneToMany(mappedBy = "contaOrigem")

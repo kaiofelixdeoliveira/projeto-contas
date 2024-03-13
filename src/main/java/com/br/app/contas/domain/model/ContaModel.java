@@ -5,7 +5,7 @@ import lombok.Data;
 
 
 @Data
-public class ContaCorrenteModel {
+public class ContaModel {
 
     private Long id;
 

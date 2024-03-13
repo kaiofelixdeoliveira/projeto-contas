@@ -1,21 +1,19 @@
 package com.br.app.contas.domain.usecases.transferencia;
 
 
+import com.br.app.contas.domain.repositories.TransferenciaContaRepository;
 import com.br.app.contas.domain.model.TransferenciaModel;
-import com.br.app.contas.domain.repositories.TransferenciaRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class RealizaTransferenciaCase {
 
-    final TransferenciaRepository transferenciaRepository;
-
-    public RealizaTransferenciaCase(TransferenciaRepository transferenciaRepository) {
-        this.transferenciaRepository = transferenciaRepository;
-    }
+    private final TransferenciaContaRepository transferenciaContaService;
 
     public void call(TransferenciaModel transferencia) {
-        transferenciaRepository.realizarTransferencia(transferencia);
+        transferenciaContaService.realizarTransferencia(transferencia);
 
     }
 

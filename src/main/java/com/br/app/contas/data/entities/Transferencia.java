@@ -17,11 +17,11 @@ public class Transferencia {
     private Long id;
     private String cpf;
     @ManyToOne
-    @JoinColumn(name = "conta_origem_id")
-    private ContaCorrente contaOrigem;
+    @JoinColumn(name = "contaOrigem")
+    private Conta contaOrigem;
     @ManyToOne
-    @JoinColumn(name = "conta_destino_id")
-    private ContaCorrente contaDestino;
+    @JoinColumn(name = "contaDestino")
+    private Conta contaDestino;
     private Double valor;
     private StatusTransferencia status;
 

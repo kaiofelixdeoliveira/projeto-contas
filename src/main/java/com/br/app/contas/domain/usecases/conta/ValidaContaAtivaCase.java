@@ -1,4 +1,4 @@
-package com.br.app.contas.domain.usecases.cliente;
+package com.br.app.contas.domain.usecases.conta;
 
 
 import com.br.app.contas.domain.repositories.TransferenciaContaRepository;
@@ -7,12 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class ObtemNomeClienteCase {
+public class ValidaContaAtivaCase {
     private final TransferenciaContaRepository transferenciaContaService;
 
-
-    public void call(String cpf) {
-        transferenciaContaService.obterNomeCliente(cpf);
+    public void call(String conta) {
+        transferenciaContaService.validarContaAtiva(conta);
 
     }
 
