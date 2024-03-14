@@ -175,4 +175,37 @@ Eficiência de custos: Provisionamento de recursos apenas quando necessário.
 
 ![Alt text](drawSQL.png?raw=true "Title")
 
+* Cliente:
+
+Um cliente pode ter várias contas (1:N)
+Relacionado à conta através da chave estrangeira Cliente_ID na tabela Conta.
+
+* Conta:
+
+Uma conta pertence a um único cliente (N:1)
+Relacionada ao cliente através da chave primária ID na tabela Cliente.
+Participa de transferências como conta de origem e destino (N:N).
+
+* Transferência:
+
+Uma transferência origina-se de uma única conta (N:1)
+Relacionada à conta de origem através da chave estrangeira ContaOrigem_ID na tabela Transferência.
+Uma transferência tem como destino uma única conta (N:1)
+Relacionada à conta de destino através da chave estrangeira ContaDestino_ID na tabela Transferência.
+
+### Cardinalidades:
+
+* Cliente:
+
+Cardinalidade mínima: 1 (deve haver pelo menos um cliente)
+Cardinalidade máxima: N (pode haver vários clientes)
+Conta:
+
+Cardinalidade mínima: 1 (deve haver pelo menos uma conta)
+Cardinalidade máxima: N (pode haver várias contas)
+
+* Transferência:
+
+Cardinalidade mínima: 1 (deve haver pelo menos uma transferência)
+Cardinalidade máxima: N (pode haver várias transferências)
 
