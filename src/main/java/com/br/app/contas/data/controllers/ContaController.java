@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/contas-s")
+@RequestMapping("/api/contas")
 public class ContaController {
 
     @Autowired

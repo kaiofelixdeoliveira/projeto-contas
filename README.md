@@ -171,4 +171,8 @@ Alta disponibilidade: API sempre disponível.
 Segurança: Proteção contra acessos não autorizados.
 Eficiência de custos: Provisionamento de recursos apenas quando necessário.
 
+### Modelo Entidade Relacionamento
+
+![Alt text](drawSQL.png?raw=true "Title")
+
 

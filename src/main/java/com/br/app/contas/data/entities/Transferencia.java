@@ -23,7 +23,7 @@ public class Transferencia {
     @JoinColumn(name = "contaDestino")
     private Conta contaDestino;
     private Double valor;
-    private StatusTransferencia status;
+    private String status;
 
     private LocalDateTime dataHora;
 
