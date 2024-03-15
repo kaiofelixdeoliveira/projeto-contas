@@ -8,11 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContaJpaRepository extends JpaRepository<Conta, Long> {
-    @Query("SELECT c FROM Conta c WHERE c.numeroConta = :numero")
-    ContaModel findByNumeroConta(String numero);
+    Conta findByNumeroConta(String numero);
 
-    @Query("SELECT c.ativa FROM Conta c WHERE c.numeroConta = :numeroConta")
-    boolean findIsActiveByNumeroConta(String numeroConta);
+
+    Conta findByNumeroContaAndStatus(String numeroConta, String status);
 
 
 

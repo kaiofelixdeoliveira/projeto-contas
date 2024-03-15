@@ -1,6 +1,7 @@
 package com.br.app.contas.domain.usecases.bacen;
 
 
+import com.br.app.contas.data.client.dto.BacenRequest;
 import com.br.app.contas.domain.repositories.TransferenciaContaRepository;
 import com.br.app.contas.domain.model.TransferenciaModel;
 import lombok.AllArgsConstructor;
@@ -12,8 +13,8 @@ public class NotificaTransacaoBacenCase {
 
     private final TransferenciaContaRepository transferenciaContaService;
 
-    public void call(TransferenciaModel transferencia) {
-        transferenciaContaService.notificarTransacao(transferencia);
+    public void call(BacenRequest bacenRequest) {
+        transferenciaContaService.notificarTransacao(bacenRequest);
 
     }
 

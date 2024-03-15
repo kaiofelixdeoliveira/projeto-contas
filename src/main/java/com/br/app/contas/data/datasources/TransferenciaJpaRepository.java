@@ -15,8 +15,8 @@ import java.util.List;
 public interface TransferenciaJpaRepository extends JpaRepository<Transferencia, Long> {
 
     @Modifying
-    @Query("UPDATE Transferencia t SET t.valor = :newValue WHERE t.contaDestino = :contaDestino")  // Assuming you want to update the "valor" field
-    void updateTransferencia(@Param("contaDestino") String contaDestino, @Param("newValue") Double newValue);
+    @Query("UPDATE Transferencia t SET t.valor = :newValue WHERE t.contaDestino.numeroConta = :numeroConta")  // Assuming you want to update the "valor" field
+    void updateTransferencia(@Param("numeroConta") String numeroConta, @Param("newValue") Double newValue);
 
     @Query("SELECT t FROM Transferencia t WHERE t.contaOrigem.numeroConta = :numeroConta AND t.dataHora BETWEEN :dataInicio AND :dataFim")
     List<TransferenciaModel> findByContaIdAndDataHoraBetween(@Param("numeroConta") String numeroConta, LocalDateTime dataInicio, LocalDateTime dataFim);

@@ -1,10 +1,12 @@
 package com.br.app.core.exeptions;
-public class ApiError{
+
+public class CadastroException extends RuntimeException {
 
     private final int statusCode;
     private final String message;
 
-    public ApiError(int statusCode, String message) {
+    public CadastroException(int statusCode, String message) {
+        super(message);
         this.statusCode = statusCode;
         this.message = message;
     }
@@ -13,15 +15,8 @@ public class ApiError{
         return statusCode;
     }
 
+    @Override
     public String getMessage() {
         return message;
-    }
-
-    @Override
-    public String toString() {
-        return "ApiError{" +
-                "statusCode=" + statusCode +
-                ", message='" + message + '\'' +
-                '}';
     }
 }

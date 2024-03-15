@@ -13,8 +13,8 @@ public class ConsultaSaldoCase {
     private final TransferenciaContaRepository transferenciaContaService;
 
 
-    public ContaModel call(ContaModel conta) {
-        return transferenciaContaService.consultaSaldo(conta.getNumeroConta());
+    public ContaModel call(String numeroConta) {
+        return transferenciaContaService.consultaSaldo(numeroConta);
 
     }
 

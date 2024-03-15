@@ -1,18 +1,22 @@
 package com.br.app.contas.domain.repositories;
 
+import com.br.app.contas.data.client.dto.BacenRequest;
+import com.br.app.contas.data.client.dto.CadastroResponse;
+import com.br.app.contas.data.entities.Conta;
 import com.br.app.contas.domain.model.ContaModel;
 import com.br.app.contas.domain.model.TransferenciaModel;
+import com.br.app.core.exeptions.ContaNaoEncontradaException;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface TransferenciaContaRepository {
-    String obterNomeCliente(String cpf);
 
     void realizarTransferencia(TransferenciaModel transferencia);
 
-    void notificarTransacao(TransferenciaModel transferencia);
+    void notificarTransacao(BacenRequest bacenRequest);
 
-    void atualizarLimite(String numeroConta, Double saldo);
+    ContaModel atualizarLimite(String numeroConta, Double novoLimite) throws ContaNaoEncontradaException;
 
     Double getValorTotalTransferidoPorDia(String numeroConta, LocalDate data);
 
@@ -21,4 +25,6 @@ public interface TransferenciaContaRepository {
     boolean validarContaAtiva(String conta);
 
     boolean validarLimiteDisponivel(String conta, Double valorTransferencia);
+
+    List<CadastroResponse> obterNomeCliente(String cpf);
 }
