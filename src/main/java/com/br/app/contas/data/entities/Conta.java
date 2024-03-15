@@ -1,11 +1,8 @@
 package com.br.app.contas.data.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.br.app.contas.data.enums.StatusConta;
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.util.List;
 
@@ -14,7 +11,7 @@ import java.util.List;
 @Table(name = "contas")
 public class Conta {
 
-    public Conta() {
+    public Conta(String contaOrigem, double v, StatusConta ativa) {
     }
 
     @Id

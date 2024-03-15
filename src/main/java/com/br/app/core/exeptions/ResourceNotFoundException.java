@@ -1,4 +1,4 @@
-package com.br.app.core.configurations;
+package com.br.app.core.exeptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

@@ -24,7 +24,9 @@ public interface TransferenciaContaRepository {
 
     boolean validarContaAtiva(String conta);
 
-    boolean validarLimiteDisponivel(String conta, Double valorTransferencia);
+    void validarLimiteDisponivel(String conta, Double valorTransferencia);
+
+    void validarLimiteDiario(String conta, Double valorTransferencia);
 
     List<CadastroResponse> obterNomeCliente(String cpf);
 }

@@ -7,6 +7,7 @@ import com.br.app.contas.data.client.dto.CadastroResponse;
 import com.br.app.contas.data.datasources.ContaJpaRepository;
 import com.br.app.contas.data.datasources.TransferenciaJpaRepository;
 import com.br.app.contas.data.entities.Conta;
+import com.br.app.contas.data.entities.Transferencia;
 import com.br.app.contas.data.enums.StatusConta;
 import com.br.app.contas.data.enums.StatusTransferencia;
 import com.br.app.contas.domain.model.ContaModel;
@@ -14,29 +15,23 @@ import com.br.app.contas.domain.model.TransferenciaModel;
 import com.br.app.contas.domain.repositories.TransferenciaContaRepository;
 import com.br.app.core.exeptions.*;
 import com.br.app.core.utils.RetryUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.FeignException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 
 @AllArgsConstructor
 @Service
 public class TransferenciaContaServiceImpl implements TransferenciaContaRepository {
 
-    private Map<String, Boolean> contasAtivasCache; // Simulação de cache para agilizar validação
     private CadastroClient cadastroClient;
     private BacenClient bacenClient;
     private TransferenciaJpaRepository transferenciaJpaRepository;
     private ContaJpaRepository contaJpaRepository;
-
-    private ObjectMapper mapper;
 
 
     @Override
@@ -72,9 +67,7 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
         validarLimiteDisponivel(contaOrigem, transferencia.getValor());
 
         // Validar limite diário
-        if (transferencia.getValor() > 1000.0) {
-            throw new LimiteDiarioExcedidoException();
-        }
+        validarLimiteDiario(contaOrigem, transferencia.getValor());
 
         //consultar saldo da conta de destino
         var contaDestinoSaldo = consultaSaldo(contaDestino);
@@ -86,7 +79,7 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
         transferencia.setContaOrigem(novoLimiteContaOrigem);
         transferencia.setContaDestino(novoLimiteContaContaDestino);
         transferencia.setStatus(StatusTransferencia.CONCLUIDA.name());
-        transferencia.setDataHora(LocalDateTime.now());
+        transferencia.setDataHora(LocalDate.now());
 
         //Atualizar saldo da transferência
         updateTransferencia(transferencia);
@@ -94,6 +87,7 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
         BacenRequest bacenRequest = BacenRequest.transferenciaToBacenRequest(transferencia);
         String nome = findNome(cadastroResponse);
         bacenRequest.setNome(nome);
+
         // Notificar BACEN
         notificarTransacao(bacenRequest);
 
@@ -142,11 +136,12 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
     @Override
     public Double getValorTotalTransferidoPorDia(String numeroConta, LocalDate data) {
         // Obter todas as transferências da conta na data informada
-        List<TransferenciaModel> transferencias = transferenciaJpaRepository.findByContaIdAndDataHoraBetween(numeroConta, data.atStartOfDay(), data.atStartOfDay());
+        List<Transferencia> transferencias = transferenciaJpaRepository.findAllTransferenciasByContaOrigemAndData(numeroConta, data.minusDays(1), data);
+        var transferenciasModelList = TransferenciaModel.transferenciaToTransferenciaModel(transferencias);
 
         // Somar os valores das transferências
         Double totalTransferido = 0.0;
-        for (TransferenciaModel transferencia : transferencias) {
+        for (TransferenciaModel transferencia : transferenciasModelList) {
             totalTransferido += transferencia.getValor();
         }
 
@@ -174,16 +169,19 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
     }
 
     @Override
-    public boolean validarLimiteDisponivel(String conta, Double valorTransferencia) {
-
+    public void validarLimiteDisponivel(String conta, Double valorTransferencia) {
 
         // Obter saldo disponível da conta
         var saldoDisponivel = consultaSaldo(conta);
 
         // Validar se o valor da transferência excede o saldo disponível
         if (valorTransferencia > saldoDisponivel.getSaldo()) {
-            return false;
+            throw new ExcedeSaldoDisponivelException();
         }
+    }
+
+    @Override
+    public void validarLimiteDiario(String conta, Double valorTransferencia) {
 
         // Obter limite diário de transferência
         Double limiteDiario = 1000.0;
@@ -193,10 +191,8 @@ public class TransferenciaContaServiceImpl implements TransferenciaContaReposito
 
         // Validar se o valor da transferência excede o limite diário
         if (valorTransferencia + totalTransferidoHoje > limiteDiario) {
-            return false;
+            throw new LimiteDiarioExcedidoException();
         }
-
-        return true;
     }
 
     @Override

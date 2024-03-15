@@ -1,13 +1,9 @@
 package com.br.app.contas.data.entities;
 
 
-import com.br.app.contas.data.enums.StatusTransferencia;
-import lombok.AllArgsConstructor;
-
 import jakarta.persistence.*;
-import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "transferencias")
@@ -28,7 +24,7 @@ public class Transferencia {
     private Double valor;
     private String status;
 
-    private LocalDateTime dataHora;
+    private LocalDate dataHora;
 
     public Long getId() {
         return id;
@@ -78,11 +74,11 @@ public class Transferencia {
         this.status = status;
     }
 
-    public LocalDateTime getDataHora() {
+    public LocalDate getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
+    public void setDataHora(LocalDate dataHora) {
         this.dataHora = dataHora;
     }
 

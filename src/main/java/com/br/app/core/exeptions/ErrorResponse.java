@@ -1,4 +1,4 @@
-package com.br.app.core.configurations;
+package com.br.app.core.exeptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

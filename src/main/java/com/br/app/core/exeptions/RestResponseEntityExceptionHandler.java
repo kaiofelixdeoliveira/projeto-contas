@@ -1,6 +1,5 @@
-package com.br.app.core.configurations;
+package com.br.app.core.exeptions;
 
-import com.br.app.core.exeptions.*;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

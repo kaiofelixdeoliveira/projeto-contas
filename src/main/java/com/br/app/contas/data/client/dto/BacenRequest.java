@@ -4,6 +4,7 @@ package com.br.app.contas.data.client.dto;
 import com.br.app.contas.domain.model.TransferenciaModel;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -13,7 +14,7 @@ public class BacenRequest {
     private String idTransacao;
 
     private String nome;
-    private LocalDateTime dataHora;
+    private LocalDate dataHora;
     private Double valor;
     private String contaOrigem;
     private String contaDestino;
