@@ -238,7 +238,7 @@ Request
 Response code 201
 
 ### Collection API
-![Alt text](collection.json?raw=true "Title")
+![Alt text](collection.json?raw=true "Collection")
 
 
 
