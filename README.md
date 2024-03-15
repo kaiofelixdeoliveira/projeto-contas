@@ -209,3 +209,32 @@ Cardinalidade máxima: N (pode haver várias contas)
 Cardinalidade mínima: 1 (deve haver pelo menos uma transferência)
 Cardinalidade máxima: N (pode haver várias transferências)
 
+### Mocks API Cadastro e Bacen
+[https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/cadastro](https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/cadastro?cpf=cpf%201)
+
+Response
+```json
+[
+	{
+		"nome": "Alfredo Bashirian",
+		"cpf": "cpf 1",
+		"id": "1"
+	}
+]
+```
+
+[https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/notificacao](https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/notificacao)https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/notificacao
+Request
+```json
+{
+  "idTransacao": "1234567890",
+  "dataHora": "2024-03-15T01:46:59.999",
+  "valor": 500.00,
+  "cpfOrigem": "12345678900",
+  "cpfDestino": "98765432100",
+  "status": "CONCLUIDA"
+}
+```
+
+
+
