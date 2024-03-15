@@ -223,6 +223,7 @@ Response
 Response code 200
 
 [https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/notificacao](https://623f2efc0adaf66ad741087f.mockapi.io/api/v1/notificacao)
+
 Request
 ```json
 {
