@@ -237,5 +237,9 @@ Request
 ```
 Response code 201
 
+### Collection API
+![Alt text](Transferencia bancaria - Insomnia_2024-03-15.json?raw=true "Title")
+
+
 
 
