@@ -214,13 +214,11 @@ Cardinalidade máxima: N (pode haver várias transferências)
 
 Response
 ```json
-[
-	{
-		"nome": "Alfredo Bashirian",
-		"cpf": "cpf 1",
-		"id": "1"
-	}
-]
+{
+	"nome": "Alfredo Bashirian",
+	"cpf": "cpf 1",
+	"id": "1"
+}
 ```
 Response code 200
 
